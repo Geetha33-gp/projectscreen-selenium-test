@@ -1,4 +1,5 @@
 import { $ } from '../types/wdio';
+import { expect } from 'chai';
 
 export function login($: $, email: any, password: any) {
    const emailId = $('input[id="username"]');
@@ -10,7 +11,8 @@ export function login($: $, email: any, password: any) {
    passwordType.setValue(password);
    browser.pause(1000);
    const logInText = $('h2');
-   logInText.getText().should.equal('Log In');
+   expect(logInText.isExisting()).true;
+   expect(logInText.getText()).not.null;
    login.click();
    browser.pause(4000);
 }
@@ -19,7 +21,8 @@ export function logout($: $) {
    const logout = $("a[href='/logout']");
    browser.execute("arguments[0].setAttribute('style', 'background: #FFB533;');", (logout as any));
    browser.pause(4000);
-   logout.getText().should.equal('LOG OUT');
+   expect(logout.isExisting()).true;
+   expect(logout.getText()).not.null;
    logout.click();
    browser.pause(2000);
 }
@@ -28,7 +31,8 @@ export function forgotPassword($: $) {
    const toResetPswd = $("a[href='/forgot-password']");
    browser.pause(1500);
    const footerText = $(".Footnote");
-   footerText.getText().should.equal('Did you forget your password?');
+   expect(footerText.isExisting()).true;
+   expect(footerText.getText()).not.null;
    toResetPswd.click();
    browser.waitUntil(
      () => browser.getUrl().endsWith(`/forgot-password`), 
@@ -54,7 +58,8 @@ export function resetPswd($: $, email: any, setOtp: any, resetPswd: any) {
    browser.pause(1000);
 
    const resetPswdText = $('.intro');
-   resetPswdText.getText().should.equal('To reset your password, please verify your email address.');
+   expect(resetPswdText.isExisting()).true;
+   expect(resetPswdText.getText()).not.null;
 
    const submitNewPswd = $('button[id="change-password-forgot-password"]');
    submitNewPswd.click();

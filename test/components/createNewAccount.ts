@@ -1,4 +1,5 @@
 import { $ } from '../types/wdio';
+import { expect } from 'chai';
 
 export function createNewAccount($: $, emailId: any, confirmEmailId: any, password: any, confirmPassword: any, mobileNumber: any, otp: any) {
    const clickToCreateNewAccount = $('a[href="/activate"]');
@@ -38,7 +39,8 @@ export function createNewAccount($: $, emailId: any, confirmEmailId: any, passwo
    browser.pause(1000);
 
    const createNewAccountText = $('.ScreenContainer > .IntroParagraphs');
-   createNewAccountText.getText().should.equal('Please create an account to activate and link your kit.');
+   expect(createNewAccountText.isExisting()).true;
+   expect(createNewAccountText.getText()).not.null;
 
    const submit = $('button[id="create-account-button"]');
    submit.click();

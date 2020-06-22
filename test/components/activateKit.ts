@@ -1,8 +1,10 @@
 import { $ } from '../types/wdio';
+import { expect } from 'chai';
 
 export function toActivateKit($: $) {
    const activateKitText = $('.Footnote');
-   activateKitText.getText().should.equal('Add another kit? Order now');
+   expect(activateKitText.isExisting()).true;
+   expect(activateKitText.getText()).not.null;
 
    const clickToActivate = $('button[id="show-kit-activation"]');
    clickToActivate.click();
@@ -12,7 +14,8 @@ export function toActivateKit($: $) {
 export function activateYourKit($: $, firstName: any, lastName: any, dob: any, hkId: any, passportNum: any, hkReturnHomePermit: any, travelDocument: any, barcodeValue: any) {
    //PERSONAL INFO
    const personalDetailsText = $('//*[@id="root"]/div/div/div/div[2]/div/div[2]/div/div[1]/div[2]/div[2]/div[1]/div/p');
-   personalDetailsText.getText().should.equal('Personal details are required as this information will be used to cross check with your travel documents and help validate your identity.');
+   expect(personalDetailsText.isExisting()).true;
+   expect(personalDetailsText.getText()).not.null;
 
    const firstname = $('input[id="firstname"]');
    firstname.setValue(firstName);
@@ -88,7 +91,8 @@ export function activateYourKit($: $, firstName: any, lastName: any, dob: any, h
    browser.pause(1000);
 
    const surveyQuestionText = $('h4');
-   surveyQuestionText.getText().should.equal('Next, please tell us a little about your health situation.');
+   expect(surveyQuestionText.isExisting()).true;
+   expect(surveyQuestionText.getText()).not.null;
 
    const submit = $('button[id="submit-questionnaire"]');
    submit.click();
@@ -97,14 +101,16 @@ export function activateYourKit($: $, firstName: any, lastName: any, dob: any, h
 
 export function scheduleReturn($: $, addressLine1: any, addressLine2: any) {
    const acknowledgeText = $('.single-pane > h4');
-   acknowledgeText.getText().should.equal('Before you schedule your appointment, please read the below guidelines carefully.');
+   expect(acknowledgeText.isExisting()).true;
+   expect(acknowledgeText.getText()).not.null;
 
    const proceedToSchedule = $('button[id="proceed-to-schedule"]');
    proceedToSchedule.click();
    browser.pause(2000);
 
    const scheduleReturnText = $('.accordion-content h4');
-   scheduleReturnText.getText().should.equal('Please provide your pick-up details and confirm your booking.');
+   expect(scheduleReturnText.isExisting()).true;
+   expect(scheduleReturnText.getText()).not.null;
    browser.pause(1000);
 
    const pickUpDate = $("select[id='pickupdate']");
@@ -162,7 +168,8 @@ export function reScheduleOrCancel($: $) {
    browser.pause(5000);
 
    const confirmPickUpText = $('.accordion-content h4');
-   confirmPickUpText.getText().should.equal('Thank you for scheduling your pick-up.');
+   expect(confirmPickUpText.isExisting()).true;
+   expect(confirmPickUpText.getText()).not.null;
    browser.pause(1000);
 
    const confirmPickUp = $("#finish-scheduling-pickup");
@@ -175,13 +182,15 @@ export function reScheduleOrCancel($: $) {
 
 export function collectSample($: $) {
    // const videoTitleText = $('.video-title');
-   // videoTitleText.getText().should.equal('Please follow the instructions to collect your deep throat saliva sample.');
+   // expect(videoTitleText.isExisting()).true;
+   // expect(videoTitleText.getText()).not.null;
 
    // const watchTutorial = $("//*[@id='player_uid_978336262_1']/div[4]/button");
    // watchTutorial.click();
 
    const sampleCollectionText = $('.single-pane > h4 > span');
-   sampleCollectionText.getText().should.equal('Please only collect your sample on the morning of your return date');
+   expect(sampleCollectionText.isExisting()).true;
+   expect(sampleCollectionText.getText()).not.null;
 
    const submitToSampleReturn = $("button[id='complete-step-3']");
    submitToSampleReturn.click();
@@ -200,6 +209,7 @@ export function returnToPreviousStep($: $) {
    browser.pause(4000);
 
    const returnToPreviousStepText = $('//*[@id="root"]/div/div/div/div[2]/div/div[2]/div/div[4]/div[2]/div[2]/p[1]');
-   returnToPreviousStepText.getText().should.equal('Want to see sample collection instructions again? Return to Step 3.');
+   expect(returnToPreviousStepText.isExisting()).true;
+   expect(returnToPreviousStepText.getText()).not.null;
 }
 

@@ -9,14 +9,14 @@ exports.config = {
     port: 4444,
     path: '/wd/hub',
     specs: [
-        './build/*.js'
+        './build/3_activateKit.js'
     ],
     maxInstances: 1,
     capabilities: [{
         maxInstances: 1,
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: process.env.disable_headless === 'true' ? [] : headlessChromeOptions,
+            args: process.env.disable_headless === 'true' ? [] : [],
             binary: location
         }
     }],
