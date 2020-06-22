@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+       java: openjdk8
+       nodejs: 10
+    commands:
+      - npm ci
+  build:
+    commands:
+      - |-
+        if [ "$ENV" = "dev" ]; then
+          npm test;
+        else
+          mkdir results && touch results/dummy.txt;
+        fi
+artifacts:
+  files:
+    - results/**/*
+  discard-paths: yes

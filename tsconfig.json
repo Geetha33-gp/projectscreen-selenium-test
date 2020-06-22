@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "umd",
+    "moduleResolution": "node",
+    "isolatedModules": false,
+    "noEmit": false,
+    "jsx": "preserve",
+    "types": ["node", "@wdio/sync", "mocha", "@types/chai", "@wdio/mocha-framework"],
+    "removeComments": true,
+    "outDir": "build/"
+  },
+  "include": [
+    "./test/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
