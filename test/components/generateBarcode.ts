@@ -2,7 +2,7 @@ import { envs } from '../types/util';
 import { loginWithPassword } from '../types/loginWithPassword';
 import { generateBarcodes } from '../types/generateBarcode';
 
-export function barcodeValue() {
+export function generateBarcode() {
   const lab = 'preneticshk';
 
   let fulfilToken = '';

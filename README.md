@@ -1,4 +1,4 @@
-# spock-selenium-test
+# projectscreen-selenium-test
 
 Checks circledna.com and order.circledna.com using selenium upon merges and pull requests
 
